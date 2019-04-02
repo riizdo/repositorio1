@@ -10,6 +10,7 @@ class Conversor:
         return "Tenemos {} grados {}".format(self.__temperatura, self.__unidades)
 
     def temperatura(self, valor = None):
+        valor = self.comp(valor)
         if valor == None:
             return self.__temperatura
         else:
@@ -24,11 +25,19 @@ class Conversor:
     def cantidad(self):
         return len(self.__registro)
     
+    def comp(self, entrada):
+        try:
+            return int(entrada)
+        except:
+            return None
+    
     #en temperatura introducimos el valor a convertir
     #en caso de no introducir
     #en unidades seleccionamos la unidad en la que viene
     #el dato de temperatura 0 centigrados 1 farenheit
     def conversion(self, unidades = None, temperatura = None):
+        unidades = self.comp(unidades)
+        temperatura = self.comp(temperatura)
         if unidades == None:
             if self.__unidades == "centigrados":
                 unidades = 0
