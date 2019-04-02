@@ -46,4 +46,6 @@ class Conversor:
             self.__unidades = "centigrados"
             self.__registro.append("farenheit a centigrados")
         
-        
+if __name__ == '__main__':
+    termometro = Conversor()
+    print(termometro)
